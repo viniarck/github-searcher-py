@@ -1,0 +1,30 @@
+image: docker:latest
+
+services:
+- docker:dind
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+stages:
+    - python_build_tests
+
+python_build_tests:
+  stage: python_build_tests
+  before_script:
+    - apk add build-base
+    - apk add python3-dev
+    - apk add libffi-dev
+    - apk add openssl-dev
+    - apk add --no-cache py-pip
+    - apk add rust
+    - apk add cargo
+    - pip install docker-compose==1.27.4
+  script:
+    - pwd
+    - docker-compose -p solution up -d
+    - docker ps
+    - sleep 10
+    - docker ps
+    - echo "Executing tests..."
+    - make test

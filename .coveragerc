@@ -1,0 +1,11 @@
+[coverage:report]
+skip_empty = true
+
+
+[run]
+omit =
+  /app/app/middleware.py
+  # TODO enhance views coverage in the future
+  /app/app/views/*.py
+  /app/app/main.py
+  /app/app/dependables.py
