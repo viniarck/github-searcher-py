@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><code>github-searcher-ex</code></h1>
+  <h1><code>github-searcher-py</code></h1>
 
   <strong>GitHub searcher API app in Python with FastAPI 🐍⚡</strong>
 </div>
